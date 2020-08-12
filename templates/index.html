@@ -1,6 +1,16 @@
 {% extends "/base.html" %}
 
 {% block content %}
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-57911935-1');
+  gtag('event', 'page_view');
+</script>
+<script src="https://cdn.jwplayer.com/libraries/akhqIXrh.js"></script>
 <div class="container">
     <div class="customstyle">
       <div class="row">
@@ -30,12 +40,39 @@
             <div class="card">
 <img src="http://www.playfullscreen.com/photos/virt_event/J-Hepburn/image-3.jpg" class="card-img-top" alt="...">
 <div class="card-body">
-  <h5 class="card-title">Drop Video Player Here</h5>
-  <p class="card-text">Embed a video player and link the file.</p>
+   <div id="video-player">
+   </div>
+  <script type="text/javascript">
+    jwplayer('video-player').setup({
+    autostart:'viewable',	
+    width: '100%',
+    abouttext: 'PlayFullScreen HTML5 Player',
+    aboutlink: 'http://www.playfullscreen.com',
+    playlist: [
+                    {
+						          title: 'Wedding Webcast', 
+                      sources: [
+							              { file: 'http://s3.cdn.playfullscreen.com/vid-clips/coming-soon30sec.mp4' }
+                        ],
+						          mediaid: 'pre-roll'
+                    }
+    ],
+    cast: {
+    	appid: "B012DD0F",
+    	//loadscreen: "/img.png",
+    	//endscreen: "/img.png ",
+    	//logo: "logo.png",
+    	//railcolor: "#e31e76"
+	},
+    ga: {
+         label: "virt-wedding"
+    }
+  });
+
+
+  </script>
 </div>
 <div class="card-body">
-  <a href="#" class="card-link">Player</a>
-  <a href="#" class="card-link">Another link</a>
 </div>
 </div>
         </div>
